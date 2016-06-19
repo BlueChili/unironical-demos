@@ -1,0 +1,89 @@
+$greenMint = #91f7d4
+
+.nv
+  opacity 0
+  margin-top -0.2em
+  box-sizing border-box
+  pointer-events none
+  background $greenMint
+  height 0
+  max-height 0
+  @media screen and (min-width: 500px)
+    height 3em
+    max-height 3em
+    opacity 1
+    margin-top 0
+    pointer-events auto
+
+.nv:target
+  opacity 1
+  height 100%
+  pointer-events auto
+  max-height 50em
+  transition max-height 1s
+
+.nv-home
+  position absolute
+  top 0.6em
+  left 0.8em
+  border 1px solid $greenMint
+  color black
+  text-decoration none
+  padding 0.3em 0.8em 0.4em 0.5em
+  font-weight 100
+  @media all and (min-width: 500px)
+    color white
+
+.nv-home + .nv:target + .nv-home
+  color white
+
+.nv-open
+  position absolute
+  top 0.6em
+  right 1em
+  color black
+  text-decoration none
+  background transparent
+  border 1px solid $greenMint
+  transition color 0.6s
+  padding 0.3em 0.8em 0.4em
+  font-weight 100
+  &:active
+    color white
+  @media all and (min-width: 500px)
+    display none
+
+.nv-list
+  display block
+  list-style none
+  text-align center
+  padding-left 0
+  padding-top 1em
+  padding-bottom 0.5em
+  margin 0 auto
+  @media screen and (min-width: 500px)
+    display flex
+    flex-flow row nowrap
+    justify-content center
+
+.nv-item
+  padding-bottom 0.4em
+  @media screen and (min-width: 500px)
+    margin 0 1em
+
+.nv-link
+  text-decoration none
+  color white
+
+.nv:target + .nv-open
+  opacity 0
+  color white
+  transform translateY(-3em)
+  transition opacity 0.6s, transform 0.6s, color 0.3s
+
+.nv:target + .nv-open + *
+  margin-top 1em
+
+.nv + .nv-open + *
+  @media screen and (max-width: 499px)
+    margin-top 3em

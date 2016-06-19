@@ -17,3 +17,4 @@ standard-minifier-js    # JS minifier run for production mode
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 kadira:flow-router
 stylus
+kadira:blaze-layout
