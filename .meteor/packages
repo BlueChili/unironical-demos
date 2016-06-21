@@ -18,3 +18,5 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 kadira:flow-router
 stylus
 kadira:blaze-layout
+accounts-base
+accounts-password

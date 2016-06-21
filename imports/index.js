@@ -7,7 +7,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import './index.html';
 import './index-links.html';
 import './unironicalNav.html';
-import './user-panel.html';
+import './user-flow/users.js';
 
 // Entry point for apps
 import './linker/index.js';
@@ -25,3 +25,4 @@ FlowRouter.route('/linker', {
     BlazeLayout.render('root', { main: 'linker_main'});
   },
 });
+
