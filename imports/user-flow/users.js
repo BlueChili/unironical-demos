@@ -10,6 +10,25 @@ Template.user_signup.events({
   },
 });
 
+Template.user_login.events({
+  'click .js-login-submit'(event) {
+    event.preventDefault();
+    const formData = event.target.form;
+    const username = formData[0].value;
+    const password = formData[1].value;
+    Meteor.loginWithPassword(username,
+      password,
+      (err) => {
+        if (err) console.log(err);
+        else console.log('all fine');
+      }
+    );
+  },
+  'click .js-logout-submit'(){
+    Meteor.logout();
+  },
+});
+
 FlowRouter.route('/signup', {
   name: 'Signup',
   action: (params, queryParams) => {
