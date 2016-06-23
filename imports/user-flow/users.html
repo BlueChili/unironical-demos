@@ -1,24 +1,24 @@
-<template name='user_signup'>
-    <h1>hello form user signup</h1>
-    <form class='js-signup-form' method='GET' name='signup' action='signup'>
+<template name='user_panel'>
+{{#unless currentUser}}
+<h1>User {{#if signing}}signup{{else}}login{{/if}}</h1>
+    <form class='js-signup-form' name='user-panel'>
         <label>username:</label>
         <input name='username' type='text' required>
+        {{#if signing}}
         <label>email:</label>
         <input name='email' type='email' required>
+        {{/if}}
         <label>password:</label>
         <input type='password' name='password' required>
-        <input type='submit' class='js-signup-submit'>
-    </form>
-</template>
-
-<template name='user_login'>
-    <h1>Login form</h1>
-    <form class='js-login-form' name='login'>
-        <label>username:</label>
-        <input type='text' name='username' class='js-username'>
-        <label>password:</label>
-        <input type='password' class='js-password' name='password'>
+        {{#if signing}}
+        <a href='#' class='js-login-flow'>←Login</a>
+        <input type='submit' class='js-signup-submit' value='Register'>
+        {{else}}
+        <a href='#' class='js-register'>register</a>
         <input type='submit' class='js-login-submit' value='Login'>
+        {{/if}}
     </form>
-    <button class='js-logout-submit'>Logout</button>
+{{else}}
+    <input type='submit' class='js-logout-submit' value='logout'>
+{{/unless}}
 </template>
