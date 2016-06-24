@@ -1,4 +1,39 @@
 <template name='linker_main'>
-    <h1>hello world</h1>
-    <p>hello from linker</p>
+    <h1>Linker</h1>
+    {{> linker_site_submit}}
+    <h2>This is a list of submissions</h2>
+    {{#each site in sites}}
+    <div>
+        <h3>Site name: <a href='/linker/{{site._id}}'>{{site.name}}</a></h3>
+        <span>Site Address:
+            <a href='{{site.url}}' target='_blank'>{{site.siteUrl}}</a>
+        </span>
+        <div>
+            <span class='lsl-comments'>{{site.comments}} Comments</span>
+            <span class='lsl-upvotes'>{{site.upvotes}} ⬆</span>
+            <span class='lsl-downvotes'>{{site.downvotes}} ⬇</span>
+        </div>
+    </div>
+    {{/each}}
+</template>
+
+<template name='linker_detail'>
+    <h1>hellofrom detail</h1>
+</template>
+
+<template name='linker_site_submit'>
+<div class='lss'>
+    <form name='lss-form' class='lss-form'>
+        <fieldset class='lss-inputFields'>
+            <label class='lss-inputLabels'>Name:</label>
+            <input type='text' class='js-site-name lss-inputName'>
+        </fieldset>
+        <fieldset class='lss-inputFields'>
+            <label class='lss-inputLabels'>Site address:</label>
+            <input type='url' class='js-site-url lss-inputUrl'>
+        </fieldset>
+    </form>
+    <button class='js-site-add' data-folded='true'>+</button>
+    <button class='js-site-submit'>Submit Site</button>
+</div>
 </template>
