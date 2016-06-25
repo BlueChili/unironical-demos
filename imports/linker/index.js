@@ -50,9 +50,18 @@ Template.linker_site_submit.events({
     });
   },
 });
-// FlowRouter.route('/linker/:id', {
-//   name: 'Site',
-//   action: function(params) {
-//     console.log(params);
-//   },
-// });
+
+Template.linker_detail.onCreated(function(){
+  const siteId = FlowRouter.getParam('id');
+  // console.log(this);
+  this.autorun(()=>{
+    this.subscribe('linker_site', siteId);
+  });
+});
+
+Template.linker_detail.helpers({
+  site(){
+    let siteId = FlowRouter.getParam('id');
+    return Linker.findOne({_id: siteId});
+  },
+});

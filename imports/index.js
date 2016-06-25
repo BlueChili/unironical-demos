@@ -30,6 +30,5 @@ FlowRouter.route('/linker/:id', {
   name: 'Site',
   action: function(params) {
     BlazeLayout.render('root', {main: 'linker_detail'});
-    console.log(params);
   },
 });
